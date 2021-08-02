@@ -5,7 +5,7 @@
       {{ store.storeName }}
     </h5>
     <p class="card-text">
-      {{ store.storeDescription }}
+      {{ store.storeDescription | slice: 0:50 }}...
     </p>
     <button class="btn btn-primary">Show</button>
   </div>

@@ -6,14 +6,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./store-table.component.css'],
 })
 export class StoreTableComponent implements OnInit {
-  @Input() stores = [{
-    storeName: '',
-    storeDescription: '',
-    storeLogo: '',
-  }];
+  @Input() stores = [
+    {
+      storeName: 'a',
+      storeDescription: 'b',
+      storeLogo: 'c',
+    },
+  ];
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.stores);
-  }
+  ngOnInit(): void {}
 }
