@@ -5,6 +5,7 @@
         <th>Store Name</th>
         <th>Store Description</th>
         <th>Store Logo</th>
+        <th>actions</th>
       </tr>
     </thead>
     <tbody>
@@ -12,6 +13,12 @@
         <td>{{ store.storeName | uppercase }}</td>
         <td>{{ store.storeDescription }}</td>
         <td>{{ store.storeLogo }}</td>
+        <td>
+          <button class="btn btn-primary mx-2"><i class="far fa-edit"></i></button>
+          <button class="btn btn-danger">
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
