@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Store } from 'src/app/interfaces/stores';
 
 @Component({
   selector: 'app-store-table',
@@ -6,8 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./store-table.component.css'],
 })
 export class StoreTableComponent implements OnInit {
-  @Input() stores = [
+  @Input() stores: Store[] = [
     {
+      _id: '',
       storeName: 'a',
       storeDescription: 'b',
       storeLogo: 'c',
