@@ -6,9 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { StoreTableComponent } from './components/store-table/store-table.component';
+import { StoreCardComponent } from './components/store-card/store-card.component';
 
 @NgModule({
-  declarations: [AppComponent, FilterComponent, StoreTableComponent],
+  declarations: [AppComponent, FilterComponent, StoreTableComponent, StoreCardComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
