@@ -9,9 +9,10 @@ import { StoreTableComponent } from './components/store-table/store-table.compon
 import { StoreCardComponent } from './components/store-card/store-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ControlPanelComponent } from './pages/control-panel/control-panel.component';
+import { StoresListComponent } from './pages/stores-list/stores-list.component';
 
 @NgModule({
-  declarations: [AppComponent, FilterComponent, StoreTableComponent, StoreCardComponent, NavbarComponent, ControlPanelComponent],
+  declarations: [AppComponent, FilterComponent, StoreTableComponent, StoreCardComponent, NavbarComponent, ControlPanelComponent, StoresListComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
