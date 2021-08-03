@@ -9,7 +9,7 @@ import { manipulateSearchParams } from '../../services/handle-search-params.serv
   styleUrls: ['./control-panel.component.css'],
 })
 export class ControlPanelComponent implements OnInit, OnDestroy {
-  stoersList: any;
+  storesList: any;
   page: number = 1;
   totalDocs: number = 0;
   subscriber: any;
@@ -22,7 +22,7 @@ export class ControlPanelComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscriber = this.activatedRoute.data.subscribe({
       next: (res) => {
-        this.stoersList = res['stores']['data']['docs'];
+        this.storesList = res['stores']['data']['docs'];
         this.page = res['stores']['data']['page'];
         this.totalDocs = res['stores']['data']['totalDocs'];
       },
@@ -52,9 +52,9 @@ export class ControlPanelComponent implements OnInit, OnDestroy {
   }
 
   getAllStores(queryParams: string): void {
-    this.services.getAllStores(queryParams).subscribe({
+    this.subscriber = this.services.getAllStores(queryParams).subscribe({
       next: (res) => {
-        this.stoersList = res['data']['docs'];
+        this.storesList = res['data']['docs'];
         this.page = res['data']['page'];
         this.totalDocs = res['data']['totalDocs'];
       },

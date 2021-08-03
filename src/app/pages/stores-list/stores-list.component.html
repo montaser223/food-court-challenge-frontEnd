@@ -1,12 +1,29 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-12">
-      <app-filter></app-filter>
+      <app-filter (searchEvent)="search($event)"></app-filter>
     </div>
   </div>
   <div class="row mt-3">
-    <div class="col-md-3 col-12">
-      <app-store-card></app-store-card>
+    <div
+      class="col-md-3 col-12"
+      *ngFor="
+        let store of storesList
+          | paginate
+            : { itemsPerPage: 5, currentPage: page, totalItems: totalDocs }
+      "
+    >
+      <app-store-card [store]="store"></app-store-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        [responsive]="true"
+        (pageChange)="handlePageChane($event)"
+      ></pagination-controls>
     </div>
   </div>
 </div>

@@ -20,6 +20,9 @@ const routes: Routes = [
   {
     path: 'stores-list',
     component: StoresListComponent,
+    resolve: {
+      stores: StoresResolver,
+    },
   },
 ];
 
