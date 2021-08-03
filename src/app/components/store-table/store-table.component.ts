@@ -29,7 +29,7 @@ export class StoreTableComponent implements OnInit {
     confirm('Are you sure?') && this.deleteStore.emit(_id);
   }
 
-  onImgError(event: any) {
+  handlenImgError(event: any) {
     event.target.src = this.defaultImage;
   }
 }

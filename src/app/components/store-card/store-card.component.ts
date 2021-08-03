@@ -16,7 +16,13 @@ export class StoreCardComponent implements OnInit {
     storeLogo: 'assets/images/default.jpg',
   };
   baseUrl = environment.apiUrl;
+  defaultImage: string = 'assets/images/default.jpg';
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  handlenImgError(event: any) {
+    event.target.src = this.defaultImage;
+  }
 }

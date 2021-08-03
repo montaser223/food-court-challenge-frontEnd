@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { manipulateSearchParams } from 'src/app/services/handle-search-params.service';
 import { StoresService } from 'src/app/services/stores.service';
+import { sweetAlert } from 'src/app/services/sweetalert.services';
 
 @Component({
   selector: 'app-stores-list',
@@ -26,7 +27,7 @@ export class StoresListComponent implements OnInit, OnDestroy {
         this.page = res['stores']['data']['page'];
         this.totalDocs = res['stores']['data']['totalDocs'];
       },
-      error: (err) => console.log(err.message),
+      error: ({ error }) => sweetAlert('error', 'Error', error.message),
     });
   }
 
@@ -58,7 +59,7 @@ export class StoresListComponent implements OnInit, OnDestroy {
         this.page = res['data']['page'];
         this.totalDocs = res['data']['totalDocs'];
       },
-      error: (err) => console.log(err.message),
+      error: ({ error }) => sweetAlert('error', 'Error', error.message),
     });
   }
 }
