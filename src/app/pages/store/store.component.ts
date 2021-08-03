@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { sweetAlert } from 'src/app/services/sweetalert.services';
 import { environment } from 'src/environments/environment';
 
@@ -14,13 +14,13 @@ export class StoreComponent implements OnInit {
   defaultImage: string = 'assets/images/default.jpg';
   baseUrl = environment.apiUrl;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.subscriber = this.activatedRoute.data.subscribe({
       next: (res) => {
-        console.log(res);
-        this.store = res.store.data;
+        res.store === '404' && this.router.navigate(['/404']);
+        this.store = res.store?.data;
       },
       error: ({ error }) => sweetAlert('error', 'Error', error.message),
     });

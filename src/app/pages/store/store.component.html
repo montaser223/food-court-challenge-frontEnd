@@ -2,15 +2,15 @@
   <div class="card" style="width: 50%; margin: auto">
     <img
       class="card-img-top"
-      [src]="baseUrl + store.storeLogo"
+      [src]="baseUrl + store?.storeLogo"
       alt="Card image cap"
       (error)="handlenImgError($event)"
       style="max-height: 450px"
     />
     <div class="card-body">
-      <h5 class="card-title">{{ store.storeName }}</h5>
+      <h5 class="card-title">{{ store?.storeName }}</h5>
       <p class="card-text">
-        {{ store.storeDescription }}
+        {{ store?.storeDescription }}
       </p>
       <a routerLink=".." class="btn btn-primary">Back</a>
     </div>

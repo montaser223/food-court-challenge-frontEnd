@@ -22,8 +22,9 @@ export class EditStoreComponent implements OnInit {
   ngOnInit(): void {
     this.subscriber = this.activatedRoute.data.subscribe({
       next: (res) => {
-        this._id = res?.store?.data?._id;
-        this.store = res?.store?.data;
+        res.store === '404' && this.router.navigate(['/404']);
+        this._id = res.store?.data?._id;
+        this.store = res.store?.data;
       },
       error: ({ error }) => sweetAlert('error', 'Error', error.message),
     });
