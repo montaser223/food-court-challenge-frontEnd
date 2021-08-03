@@ -9,7 +9,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let store of stores">
+      <tr
+        *ngFor="
+          let store of stores
+            | paginate: { itemsPerPage: 5, currentPage: page, totalItems: totalDocs }
+        "
+      >
         <td>{{ store.storeName | titlecase }}</td>
         <td>{{ store.storeDescription | slice: 0:50 }}...</td>
         <td>

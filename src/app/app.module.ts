@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ControlPanelComponent } from './pages/control-panel/control-panel.component';
 import { StoresListComponent } from './pages/stores-list/stores-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,13 @@ import { HttpClientModule } from '@angular/common/http';
     ControlPanelComponent,
     StoresListComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    NgxPaginationModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

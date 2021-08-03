@@ -15,6 +15,8 @@ export class StoreTableComponent implements OnInit {
       storeLogo: 'c',
     },
   ];
+  @Input() page: number = 1;
+  @Input() totalDocs: number = 0;
   constructor() {}
 
   ngOnInit(): void {}
