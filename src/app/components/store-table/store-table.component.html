@@ -10,10 +10,12 @@
     </thead>
     <tbody>
       <tr *ngFor="let store of stores">
-        <td>{{ store.storeName | uppercase }}</td>
-        <td>{{ store.storeDescription }}</td>
-        <td>{{ store.storeLogo }}</td>
+        <td>{{ store.storeName | titlecase }}</td>
+        <td>{{ store.storeDescription | slice: 0:50 }}...</td>
         <td>
+          <img [src]="store.storeLogo" class="img-fluid" alt="" />
+        </td>
+        <td class="text-center">
           <button class="btn btn-primary mx-2">
             <i class="far fa-edit"></i>
           </button>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from 'src/app/interfaces/stores';
 
 @Component({
   selector: 'app-control-panel',
@@ -7,12 +8,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./control-panel.component.css'],
 })
 export class ControlPanelComponent implements OnInit {
+  stoersList: Store[] = [];
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe((res) => {
-      console.log(res);
+      this.stoersList = res['stores']['data']['docs'];
+      console.log(this.stoersList);
     });
-   
   }
 }

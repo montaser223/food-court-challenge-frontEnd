@@ -2,11 +2,9 @@
   <img [src]="store.storeLogo" class="card-img-top img-fluid" alt="..." />
   <div class="card-body">
     <h5 class="card-title">
-      {{ store.storeName }}
+      {{ store.storeName | titlecase }}
     </h5>
-    <p class="card-text">
-      {{ store.storeDescription | slice: 0:50 }}...
-    </p>
+    <p class="card-text">{{ store.storeDescription | slice: 0:50 }}...</p>
     <button class="btn btn-primary">Show</button>
   </div>
 </div>
