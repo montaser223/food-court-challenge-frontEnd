@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from 'src/app/interfaces/stores';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-store-card',
@@ -14,6 +15,7 @@ export class StoreCardComponent implements OnInit {
       "Some quick example text to build on the card title and make up the bulk of the card's content.",
     storeLogo: 'assets/images/default.jpg',
   };
+  baseUrl = environment.apiUrl;
   constructor() {}
 
   ngOnInit(): void {}

@@ -1,11 +1,11 @@
 <div class="table-responsive">
-  <table class="table table-striped table-borderd">
+  <table class="table table-striped table-borderd align-baseline">
     <thead class="table-dark">
       <tr>
         <th>Store Name</th>
         <th>Store Description</th>
         <th>Store Logo</th>
-        <th>actions</th>
+        <th colspan="2">actions</th>
       </tr>
     </thead>
     <tbody>
@@ -19,7 +19,11 @@
         <td>{{ store.storeName | titlecase }}</td>
         <td>{{ store.storeDescription | slice: 0:50 }}...</td>
         <td>
-          <img [src]="store.storeLogo" class="img-fluid" alt="" />
+          <img
+            [src]="baseUrl + store.storeLogo"
+            (error)="onImgError($event)"
+            class="img-fluid"
+          />
         </td>
         <td class="text-center">
           <button
@@ -28,6 +32,8 @@
           >
             <i class="far fa-edit"></i>
           </button>
+        </td>
+        <td>
           <button
             class="btn btn-danger"
             (click)="deleteConfirmation(store._id)"

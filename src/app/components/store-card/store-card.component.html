@@ -1,5 +1,10 @@
-<div class="card">
-  <img [src]="store.storeLogo" class="card-img-top img-fluid" alt="..." />
+<div class="card mb-4">
+  <img
+    [src]="baseUrl + store.storeLogo"
+    class="card-img-top img-fluid"
+    alt="..."
+    style="height: 200px"
+  />
   <div class="card-body">
     <h5 class="card-title">
       {{ store.storeName | titlecase }}
