@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StoresService } from 'src/app/services/stores.service';
 import { manipulateSearchParams } from '../../services/handle-search-params.service';
+import { sweetAlert } from 'src/app/services/sweetalert.services';
 
 @Component({
   selector: 'app-control-panel',
@@ -26,7 +27,7 @@ export class ControlPanelComponent implements OnInit, OnDestroy {
         this.page = res['stores']['data']['page'];
         this.totalDocs = res['stores']['data']['totalDocs'];
       },
-      error: (err) => console.log(err.message),
+      error: ({ error }) => sweetAlert('error', 'Error', error.message),
     });
   }
 
@@ -65,13 +66,16 @@ export class ControlPanelComponent implements OnInit, OnDestroy {
   delete(_id: any): void {
     this.services.deleteStoreById(_id).subscribe({
       next: (res) => {
+        sweetAlert('success', 'Success', 'Store deleted successfully!');
         const queryParams = manipulateSearchParams({
           page: this.page,
           storeName: this.searchQuery,
         });
         this.getAllStores(queryParams);
       },
-      error: (err) => console.log(err),
+      error: ({ error }) => {
+        sweetAlert('error', 'Error', error.message);
+      },
     });
   }
 }

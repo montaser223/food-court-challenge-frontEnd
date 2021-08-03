@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { convertStoreToFormData } from 'src/app/services/convert-store.services';
 import { StoresService } from 'src/app/services/stores.service';
+import { sweetAlert } from 'src/app/services/sweetalert.services';
 
 @Component({
   selector: 'app-edit-store',
@@ -24,7 +25,7 @@ export class EditStoreComponent implements OnInit {
         this._id = res.store.data._id;
         this.store = res.store.data;
       },
-      error: (err) => console.log(err.message),
+      error: ({ error }) => sweetAlert('error', 'Error', error.message),
     });
   }
 
@@ -32,8 +33,8 @@ export class EditStoreComponent implements OnInit {
     const formData = convertStoreToFormData(store);
     this.services.editStoreById(this._id, formData).subscribe({
       next: (res) => this.router.navigate(['/control-panel']),
-      error: (error) => {
-        console.log(error);
+      error: ({ error }) => {
+        sweetAlert('error', 'Error', error.message);
       },
     });
   }
