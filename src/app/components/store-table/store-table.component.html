@@ -12,7 +12,8 @@
       <tr
         *ngFor="
           let store of stores
-            | paginate: { itemsPerPage: 5, currentPage: page, totalItems: totalDocs }
+            | paginate
+              : { itemsPerPage: 5, currentPage: page, totalItems: totalDocs }
         "
       >
         <td>{{ store.storeName | titlecase }}</td>
@@ -24,7 +25,10 @@
           <button class="btn btn-primary mx-2">
             <i class="far fa-edit"></i>
           </button>
-          <button class="btn btn-danger">
+          <button
+            class="btn btn-danger"
+            (click)="deleteConfirmation(store._id)"
+          >
             <i class="far fa-trash-alt"></i>
           </button>
         </td>

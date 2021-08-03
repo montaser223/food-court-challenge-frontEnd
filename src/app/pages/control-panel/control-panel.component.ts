@@ -34,19 +34,19 @@ export class ControlPanelComponent implements OnInit, OnDestroy {
     this.subscriber.unsubscribe();
   }
 
-  handlePageChane($event: any): void {
+  handlePageChane(page: any): void {
     const queryParams = manipulateSearchParams({
-      page: $event,
+      page,
       storeName: this.searchQuery,
     });
     this.getAllStores(queryParams);
   }
 
-  search($event: any): void {
-    this.searchQuery = $event;
+  search(storeName: any): void {
+    this.searchQuery = storeName;
     const queryParams = manipulateSearchParams({
       page: 1,
-      storeName: $event,
+      storeName,
     });
     this.getAllStores(queryParams);
   }
@@ -59,6 +59,19 @@ export class ControlPanelComponent implements OnInit, OnDestroy {
         this.totalDocs = res['data']['totalDocs'];
       },
       error: (err) => console.log(err.message),
+    });
+  }
+
+  delete(_id: any): void {
+    this.services.deleteStoreById(_id).subscribe({
+      next: (res) => {
+        const queryParams = manipulateSearchParams({
+          page: this.page,
+          storeName: this.searchQuery,
+        });
+        this.getAllStores(queryParams);
+      },
+      error: (err) => console.log(err),
     });
   }
 }

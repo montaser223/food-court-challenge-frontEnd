@@ -12,4 +12,9 @@ export class StoresService {
   getAllStores(queryParams: any) {
     return this._http.get<any>(this.storesUrl + queryParams);
   }
+
+  deleteStoreById(_id: any) {
+    const url = `${this.storesUrl}/${_id}`;
+    return this._http.delete(url);
+  }
 }
