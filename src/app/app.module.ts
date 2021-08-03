@@ -12,6 +12,7 @@ import { ControlPanelComponent } from './pages/control-panel/control-panel.compo
 import { StoresListComponent } from './pages/stores-list/stores-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { StoreFormComponent } from './components/store-form/store-form.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NavbarComponent,
     ControlPanelComponent,
     StoresListComponent,
+    StoreFormComponent,
   ],
   imports: [
     BrowserModule,
