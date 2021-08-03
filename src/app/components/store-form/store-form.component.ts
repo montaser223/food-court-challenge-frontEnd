@@ -15,7 +15,9 @@ export class StoreFormComponent implements OnInit {
   @Output() saveEvent = new EventEmitter<any>();
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store.storeLogo = '';
+  }
 
   submit(form: any) {
     form.valid &&

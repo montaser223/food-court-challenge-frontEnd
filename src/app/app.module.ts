@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { StoreFormComponent } from './components/store-form/store-form.component';
 import { AddStoreComponent } from './pages/add-store/add-store.component';
+import { EditStoreComponent } from './pages/edit-store/edit-store.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { AddStoreComponent } from './pages/add-store/add-store.component';
     StoresListComponent,
     StoreFormComponent,
     AddStoreComponent,
+    EditStoreComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

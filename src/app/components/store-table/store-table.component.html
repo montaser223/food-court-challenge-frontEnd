@@ -22,7 +22,10 @@
           <img [src]="store.storeLogo" class="img-fluid" alt="" />
         </td>
         <td class="text-center">
-          <button class="btn btn-primary mx-2">
+          <button
+            [routerLink]="'/edit-store/' + store._id"
+            class="btn btn-primary mx-2"
+          >
             <i class="far fa-edit"></i>
           </button>
           <button
