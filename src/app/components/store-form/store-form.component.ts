@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-store-form',
@@ -6,18 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./store-form.component.css'],
 })
 export class StoreFormComponent implements OnInit {
-  store = {
+  @Input() store = {
     storeName: '',
     storeDescription: '',
     storeLogo: '',
   };
-  storeLogo: any;
+  storeLogo: any = null;
+  @Output() saveEvent = new EventEmitter<any>();
   constructor() {}
 
   ngOnInit(): void {}
 
   submit(form: any) {
-    console.log(form);
+    form.valid &&
+      this.saveEvent.emit({
+        ...form.value,
+        storeLogo: this.storeLogo,
+      });
   }
 
   handleLogoChange(event: any) {

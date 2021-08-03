@@ -13,6 +13,7 @@ import { StoresListComponent } from './pages/stores-list/stores-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { StoreFormComponent } from './components/store-form/store-form.component';
+import { AddStoreComponent } from './pages/add-store/add-store.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { StoreFormComponent } from './components/store-form/store-form.component
     ControlPanelComponent,
     StoresListComponent,
     StoreFormComponent,
+    AddStoreComponent,
   ],
   imports: [
     BrowserModule,
