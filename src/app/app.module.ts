@@ -16,6 +16,7 @@ import { StoreFormComponent } from './components/store-form/store-form.component
 import { AddStoreComponent } from './pages/add-store/add-store.component';
 import { EditStoreComponent } from './pages/edit-store/edit-store.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { StoreComponent } from './pages/store/store.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     AddStoreComponent,
     EditStoreComponent,
     NotFoundComponent,
+    StoreComponent,
   ],
   imports: [
     BrowserModule,
