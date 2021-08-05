@@ -6,6 +6,11 @@
     class="form-control"
     placeholder="Search..."
   />
-  <i (click)="reset()" [hidden]="0 >= storeName.length" class="fas fa-times"></i>
-  <i (click)="search()" class="fas fa-search"></i>
+  <i
+    title="Reset"
+    (click)="reset()"
+    [hidden]="0 >= storeName.length"
+    class="fas fa-times"
+  ></i>
+  <i title="Search" (click)="search()" class="fas fa-search"></i>
 </div>
