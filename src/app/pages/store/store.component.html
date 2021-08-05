@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="text-center">
+    <img
+      class="m-3"
+      [src]="baseUrl + store?.storeLogo"
+      (error)="handlenImgError($event)"
+      style="max-height: 450px; width: 75%; height: 25%"
+    />
+  </div>
+  <div class="text-justify m-3">
+    <h2>{{ store?.storeName }}</h2>
+    <p>
+      {{ store?.storeDescription }}
+    </p>
+    <a routerLink=".." class="btn btn-primary p-1 mt-3">Back</a>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="form-group">
+  <input
+    [(ngModel)]="storeName"
+    name="storeName"
+    type="text"
+    class="form-control"
+    placeholder="Search..."
+  />
+  <i
+    title="Reset"
+    (click)="reset()"
+    [hidden]="0 >= storeName.length"
+    class="fas fa-times"
+  ></i>
+  <i title="Search" (click)="search()" class="fas fa-search"></i>
+</div>

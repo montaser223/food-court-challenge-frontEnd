@@ -1,0 +1,36 @@
+<app-video-background></app-video-background>
+<div class="container mt-3">
+  <div>
+    <div class="row">
+      <div class="col-12">
+        <app-filter (searchEvent)="search($event)"></app-filter>
+      </div>
+    </div>
+    <div class="row mt-3" *ngIf="storesList.length > 0; else unavailable">
+      <div
+        class="col-md-3 col-12"
+        *ngFor="
+          let store of storesList
+            | paginate
+              : { itemsPerPage: 5, currentPage: page, totalItems: totalDocs }
+        "
+      >
+        <app-store-card [store]="store"></app-store-card>
+      </div>
+    </div>
+    <div class="row" *ngIf="storesList.length > 0">
+      <div class="col-12 text-center">
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          [responsive]="true"
+          (pageChange)="handlePageChane($event)"
+        ></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #unavailable>
+  <div class="alert alert-info mt-5">No Available Stores</div>
+</ng-template>
