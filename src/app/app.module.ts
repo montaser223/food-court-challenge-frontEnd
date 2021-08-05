@@ -17,6 +17,7 @@ import { AddStoreComponent } from './pages/add-store/add-store.component';
 import { EditStoreComponent } from './pages/edit-store/edit-store.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { StoreComponent } from './pages/store/store.component';
+import { VideoBackgroundComponent } from './components/video-background/video-background.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { StoreComponent } from './pages/store/store.component';
     EditStoreComponent,
     NotFoundComponent,
     StoreComponent,
+    VideoBackgroundComponent,
   ],
   imports: [
     BrowserModule,

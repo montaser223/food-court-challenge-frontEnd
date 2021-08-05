@@ -1,5 +1,5 @@
 <div class="container mt-3">
-  <div *ngIf="storesList.length > 0; else unavailable">
+  <div>
     <div class="row">
       <div class="col-12">
         <app-filter (searchEvent)="search($event)"></app-filter>
@@ -11,6 +11,7 @@
       </div>
       <div class="col-12">
         <app-store-table
+          *ngIf="storesList.length > 0; else unavailable"
           (deleteStore)="delete($event)"
           [page]="page"
           [totalDocs]="totalDocs"
@@ -18,7 +19,7 @@
         ></app-store-table>
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="storesList.length > 0">
       <div class="col-12 text-center">
         <pagination-controls
           previousLabel="Prev"
@@ -31,8 +32,5 @@
   </div>
 </div>
 <ng-template #unavailable>
-  <div class="alert alert-info">
-    No Available Stores
-    <a routerLink="/add-store" class="alert-link">Create Store</a>.
-  </div>
+  <div class="alert alert-info">No Available Stores</div>
 </ng-template>

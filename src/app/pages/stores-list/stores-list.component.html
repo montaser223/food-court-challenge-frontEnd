@@ -1,11 +1,12 @@
+<app-video-background></app-video-background>
 <div class="container mt-3">
-  <div *ngIf="storesList.length > 0; else unavailable">
+  <div>
     <div class="row">
       <div class="col-12">
         <app-filter (searchEvent)="search($event)"></app-filter>
       </div>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-3" *ngIf="storesList.length > 0; else unavailable">
       <div
         class="col-md-3 col-12"
         *ngFor="
@@ -17,7 +18,7 @@
         <app-store-card [store]="store"></app-store-card>
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="storesList.length > 0">
       <div class="col-12 text-center">
         <pagination-controls
           previousLabel="Prev"
@@ -31,5 +32,5 @@
 </div>
 
 <ng-template #unavailable>
-  <div class="alert alert-info">No Available Stores</div>
+  <div class="alert alert-info mt-5">No Available Stores</div>
 </ng-template>

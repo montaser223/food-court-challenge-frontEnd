@@ -15,4 +15,9 @@ export class FilterComponent implements OnInit {
   search(): void {
     this.searchEvent.emit(this.storeName);
   }
+
+  reset(): void {
+    this.storeName = '';
+    this.searchEvent.emit('');
+  }
 }

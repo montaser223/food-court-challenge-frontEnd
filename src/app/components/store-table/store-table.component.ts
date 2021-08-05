@@ -26,7 +26,7 @@ export class StoreTableComponent implements OnInit {
   ngOnInit(): void {}
 
   deleteConfirmation(_id: string): void {
-    confirm('Are you sure?') && this.deleteStore.emit(_id);
+    confirm('Are you sure, You went to delete this Store?') && this.deleteStore.emit(_id);
   }
 
   handlenImgError(event: any) {
